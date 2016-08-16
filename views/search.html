@@ -1,15 +1,18 @@
 <div class="">
-  <h2>search page</h2>
   <div class="formDiv">
     <form class="formForMovie" ng-submit='searchMovieDB(movieObject.title)' ng-model='movieObject'>
       <input type="text" name="title" ng-model="movieObject.title" placeholder="Search for Movie Title">
       <input type="submit" name="name" value="Submit">
     </form>
   </div>
+  <hr>
   <div class="results" ng-repeat='movie in movieData'>
+    <a href="/search/movie?{{movie.imdbID}}">
     <div class="col-sm-6 thumbnail text-center bg-grey">
-      <b>Title: </b>{{movie.Title}}
-      <a href="/search/movie?{{movie.imdbID}}">Dat Movie</a>
+      <b>Title: </b>{{movie.Title}}<br>
+      <b>Year: </b>{{movie.Year}}<br>
+      
     </div>
+    </a>
   </div>
 </div>

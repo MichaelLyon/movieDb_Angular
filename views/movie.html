@@ -1,9 +1,69 @@
 <div class="">
-  <h2>search page</h2>
-  <div class="formDiv" ng-controller='SearchController'>
+
+  <div class="formDiv">
     <form class="formForMovie" ng-submit='searchMovieDB(movieObject.title)' ng-model='movieObject'>
       <input type="text" name="title" ng-model="movieObject.title" placeholder="Search for Movie Title">
-      <input type="submit" name="name" value="Submit">
+      <a href="/search?{{movieObject.title}}">
+        <input type="submit" name="name" value="Submit">
+      </a>
     </form>
   </div>
+  <hr>
+  <div class="showMovie col-sm-10">
+    <h1 style="margin:0px">{{specificMovie.Title}}</h1>
+  </div>
+  <div class="pictureDiv col-sm-4 thumbnail bg-grey">
+    <img src="{{specificMovie.Poster}}" alt="" />
+  </div>
+  <div class="infoDiv col-sm-6 thumbnail bg-grey">
+    <div class="actors">
+      <b>Staring: </b> {{specificMovie.Actors}}
+    </div>
+    <div class="movieBio">
+      {{specificMovie.Plot}}
+    </div>
+    <div class="moviePadding">
+      <b>Awards: </b>{{specificMovie.Awards}}
+    </div>
+    <div class="moviePadding">
+      <b>Country: </b>{{specificMovie.Country}}
+    </div>
+    <div class="moviePadding">
+      <b>Director: </b>{{specificMovie.Director}}
+    </div>
+    <div class="moviePadding">
+      <b>Genre: </b>{{specificMovie.Genre}}
+    </div>
+    <div class="moviePadding">
+      <b>Language: </b>{{specificMovie.Language}}
+    </div>
+    <div class="moviePadding">
+      <b>Metascore: </b>{{specificMovie.Metascore}}
+    </div>
+    <div class="moviePadding">
+      <b>Rated: </b>{{specificMovie.Rated}}
+    </div>
+    <div class="moviePadding">
+      <b>Released: </b>{{specificMovie.Released}}
+    </div>
+    <div class="moviePadding">
+      <b>Runtime: </b>{{specificMovie.Runtime}}
+    </div>
+    <div class="moviePadding">
+      <b>Title: </b>{{specificMovie.Title}}
+    </div>
+    <div class="moviePadding">
+      <b>Type: </b>{{specificMovie.Type}}
+    </div>
+    <div class="moviePadding">
+      <b>Writer: </b>{{specificMovie.Writer}}
+    </div>
+    <div class="moviePadding">
+      <b>Year: </b>{{specificMovie.Year}}
+    </div>
+    <div class="">
+      <b>IMDB Rating: </b>{{specificMovie.imdbRating}}
+    </div>
+  </div>
+
 </div>

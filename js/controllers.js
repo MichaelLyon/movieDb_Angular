@@ -5,13 +5,18 @@ movieApp.controller('MainController', ['$scope', function($scope) {
 }])
 
 movieApp.controller('SearchController', ['$scope', '$location', '$http','$routeParams', function($scope, $location, $http , $routeParams){
+  var movieSearchParam = $location.search();
+  var searchQuery = first(movieSearchParam);
 
   $scope.searchMovieDB = function(viewObj){
-    console.log(viewObj);
     $http.get('http://www.omdbapi.com/?s='+ viewObj).then(function(data){
         console.log(data.data.Search);
         $scope.movieData = data.data.Search;
       });
+  }
+
+  if(searchQuery != null || searchQuery != undefined){
+    $scope.searchMovieDB(searchQuery);
   }
 
     function first(obj) {
@@ -19,7 +24,7 @@ movieApp.controller('SearchController', ['$scope', '$location', '$http','$routeP
     }
 }])
 
-movieApp.controller('GetMovieController', ['$scope', '$location', '$http','$routeParams', function($scope, $location, $http , $routeParams, ObjectGet){
+movieApp.controller('GetMovieController', function($scope, $location, $http , $routeParams){
   var movieSearchParam = $location.search();
   var searchQuery = first(movieSearchParam);
 
@@ -32,4 +37,5 @@ movieApp.controller('GetMovieController', ['$scope', '$location', '$http','$rout
   function first(obj) {
       for (var a in obj) return a;
   }
-}])
+})
+ // ['$scope', '$location', '$http','$routeParams',/ TODO: ASk ABOUT THIS!!!

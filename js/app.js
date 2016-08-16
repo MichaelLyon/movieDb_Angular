@@ -14,7 +14,7 @@ angular.module('movieApp', ['movieApp.controllers', 'movieApp.filters','movieApp
         templateUrl: 'views/search.html',
         controller: 'SearchController',
       })
-      .when('/search/movie?:movieId',{
+      .when('/search/movie?',{
         templateUrl:'../views/movie.html',
         controller: 'GetMovieController'
       })
